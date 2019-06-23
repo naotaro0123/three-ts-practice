@@ -1,0 +1,31 @@
+{
+  "name": "three-ts-practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server",
+    "build": "webpack --config webpack.config.js",
+    "watch": "webpack -w",
+    "lint": "eslint --fix --ext .js,.ts --ignore-path .gitignore ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.0.0",
+    "eslint-config-prettier": "^5.0.0",
+    "eslint-loader": "^2.1.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "^3.5.2",
+    "webpack": "^4.35.0",
+    "webpack-cli": "^3.3.4",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "dependencies": {
+    "@types/three": "^0.103.2",
+    "three": "^0.105.2"
+  }
+}
