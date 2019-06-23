@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import * as dat from 'dat.gui';
 
 window.addEventListener('DOMContentLoaded', () => {
   const renderer = new THREE.WebGLRenderer();
@@ -19,9 +20,15 @@ window.addEventListener('DOMContentLoaded', () => {
   light.position.set(1, 1, 1);
   scene.add(light);
 
+  const controls = new (function() {
+    this.rotationSpeed = 1.0;
+  })();
+  const gui = new dat.GUI();
+  gui.add(controls, 'rotationSpeed', 0, 2);
+
   function render() {
-    box.rotation.x += 0.05;
-    box.rotation.y += 0.05;
+    box.rotation.x += 0.05 * controls.rotationSpeed;
+    box.rotation.y += 0.05 * controls.rotationSpeed;
     renderer.render(scene, camera);
 
     requestAnimationFrame(() => render());
