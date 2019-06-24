@@ -4,8 +4,8 @@ module.exports = {
     browser: true,
     node: true
   },
+  parser: 'babel-eslint',
   parserOptions: {
-    parser: 'babel-eslint',
     sourceType: 'module',
     project: './tsconfig.json'
   },
