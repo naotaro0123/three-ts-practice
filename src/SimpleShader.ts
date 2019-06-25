@@ -1,7 +1,6 @@
 import * as THREE from 'three';
-
-const vertexShaderSource = fetch('./shader/vertexShader.vert');
-const fragmentShaderSource = fetch('./shader/fragmentShader.frag');
+const vertexShaderSource = require('./shader/vertexShader.vert');
+const fragmentShaderSource = require('./shader/fragmentShader.frag');
 
 // referer https://qiita.com/watabo_shi/items/c0d4ef11cba6f21189ed
 // referer https://github.com/watab0shi/threejs-workshop/tree/master/src
@@ -61,22 +60,14 @@ class SimpleShader {
       }
     };
 
-    this.readShader();
-  }
-
-  readShader() {
-    Promise.all([vertexShaderSource, fragmentShaderSource])
-      .then(responses => Promise.all([responses[0].text(), responses[1].text()]))
-      .then(shaderSources => {
-        const mat = new THREE.ShaderMaterial({
-          uniforms: this._uniforms,
-          vertexShader: shaderSources[0],
-          fragmentShader: shaderSources[1]
-        });
-        this._mesh = new THREE.Mesh(this._geo, mat);
-        this._scene.add(this._mesh);
-        this.render();
-      });
+    const mat = new THREE.ShaderMaterial({
+      uniforms: this._uniforms,
+      vertexShader: vertexShaderSource,
+      fragmentShader: fragmentShaderSource
+    });
+    this._mesh = new THREE.Mesh(this._geo, mat);
+    this._scene.add(this._mesh);
+    this.render();
   }
 
   render() {
