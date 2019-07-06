@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 const Stats = require('stats.js');
-const vertexShaderSource = require('./shader/vertexShader.vert');
-const fragmentShaderSource = require('./shader/fragmentShader.frag');
+const vertexShaderSource = require('./shader/interactiveShader.vert');
+const fragmentShaderSource = require('./shader/interactiveShader.frag');
 
 // referer https://qiita.com/watabo_shi/items/c0d4ef11cba6f21189ed
 // referer https://github.com/watab0shi/threejs-workshop/tree/master/src
@@ -21,7 +21,7 @@ interface Uniform {
   };
 }
 
-class SimpleShader {
+class InteractiveShader {
   private _width: number;
   private _height: number;
   private _renderer: THREE.WebGLRenderer;
@@ -106,4 +106,4 @@ class SimpleShader {
   }
 }
 
-export default SimpleShader;
+export default InteractiveShader;

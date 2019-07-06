@@ -1,6 +1,6 @@
-// import SimpleShader from './SimpleShader';
+// import InteractiveShader from './InteractiveShader';
 
-// const canvas = new SimpleShader();
+// const canvas = new InteractiveShader();
 
 // window.addEventListener('mousemove', e => {
 //   canvas.mouseMoved(e.clientX, e.clientY);
