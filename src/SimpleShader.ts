@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+const Stats = require('stats.js');
 const vertexShaderSource = require('./shader/vertexShader.vert');
 const fragmentShaderSource = require('./shader/fragmentShader.frag');
 
@@ -31,8 +32,13 @@ class SimpleShader {
   private _tagetRadius = 0.005;
   private _uniforms: Uniform;
   private _mesh: THREE.Mesh;
+  private stats: Stats;
 
   constructor() {
+    this.stats = new Stats();
+    this.stats.showPanel(1);
+    document.body.appendChild(this.stats.dom);
+
     this._width = window.innerWidth;
     this._height = window.innerWidth;
     this._renderer = new THREE.WebGLRenderer();
@@ -73,11 +79,15 @@ class SimpleShader {
   render() {
     requestAnimationFrame(() => this.render());
 
+    this.stats.begin();
+
     const sec = performance.now() / 1000;
     this._uniforms.uTime.value = sec;
     this._uniforms.uMouse.value.lerp(this._mouse, 0.2);
     this._uniforms.uRadius.value += (this._tagetRadius - this._uniforms.uRadius.value) * 0.2;
     this._renderer.render(this._scene, this._camera);
+
+    this.stats.end();
   }
 
   mouseMoved(x, y) {
