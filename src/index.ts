@@ -14,6 +14,21 @@
 //   canvas.mouseReleased(e.clientX, e.clientX);
 // });
 
-import BasicShader from './BasicShader';
+// import BasicShader from './BasicShader';
+// new BasicShader();
 
-new BasicShader();
+import TextureShader from './TextureShader';
+
+const canvas = new TextureShader();
+
+window.addEventListener('mousemove', e => {
+  canvas.mouseMoved(e.clientX, e.clientY);
+});
+
+window.addEventListener('mousedown', e => {
+  canvas.mousePressed(e.clientX, e.clientY);
+});
+
+window.addEventListener('mouseup', e => {
+  canvas.mouseReleased(e.clientX, e.clientX);
+});
