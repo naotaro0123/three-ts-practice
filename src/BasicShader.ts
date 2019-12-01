@@ -3,23 +3,23 @@ const vertexShader = require('./shader/basicShader.vert');
 const fragmentShader = require('./shader/basicShader.frag');
 
 class BasicShader {
-  private _width: number;
-  private _height: number;
-  private _renderer: THREE.WebGLRenderer;
-  private _camera: THREE.OrthographicCamera;
-  private _scene: THREE.Scene;
-  private _mesh: THREE.Mesh;
+  private width: number;
+  private height: number;
+  private renderer: THREE.WebGLRenderer;
+  private camera: THREE.OrthographicCamera;
+  private scene: THREE.Scene;
+  private mesh: THREE.Mesh;
 
   constructor() {
-    this._width = window.innerWidth;
-    this._height = window.innerHeight;
-    this._renderer = new THREE.WebGLRenderer();
-    this._renderer.setSize(this._width, this._height);
-    this._renderer.setPixelRatio(window.devicePixelRatio);
-    document.body.appendChild(this._renderer.domElement);
+    this.width = window.innerWidth;
+    this.height = window.innerHeight;
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setSize(this.width, this.height);
+    this.renderer.setPixelRatio(window.devicePixelRatio);
+    document.body.appendChild(this.renderer.domElement);
 
-    this._camera = new THREE.OrthographicCamera(-1, 1, 1, 0, -1);
-    this._scene = new THREE.Scene();
+    this.camera = new THREE.OrthographicCamera(-1, 1, 1, 0, -1);
+    this.scene = new THREE.Scene();
 
     const geo = new THREE.PlaneGeometry(2, 2, 1, 1);
     const mat = new THREE.ShaderMaterial({
@@ -28,15 +28,14 @@ class BasicShader {
       wireframe: false
     });
 
-    this._mesh = new THREE.Mesh(geo, mat);
-    this._scene.add(this._mesh);
+    this.mesh = new THREE.Mesh(geo, mat);
+    this.scene.add(this.mesh);
     this.render();
   }
 
   render() {
     requestAnimationFrame(() => this.render());
-
-    this._renderer.render(this._scene, this._camera);
+    this.renderer.render(this.scene, this.camera);
   }
 }
 

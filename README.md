@@ -2,6 +2,7 @@
 three.js x TypeScript My Practice
 
 ## Build Setup
+use node v13.2.0
 
 ``` bash
 # install dependencies
