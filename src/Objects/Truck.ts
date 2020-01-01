@@ -18,7 +18,7 @@ class Truck extends THREE.Object3D {
         color: 0xffff00
       })
     );
-    wheel1.rotation.x = wheel1.rotation.z = 90 * Math.PI / 180;
+    wheel1.rotation.x = wheel1.rotation.z = (90 * Math.PI) / 180;
     wheel1.position.y = 1;
     wheel1.position.z = -2;
     this.add(wheel1);
@@ -29,7 +29,7 @@ class Truck extends THREE.Object3D {
         color: 0xffff00
       })
     );
-    wheel2.rotation.x = wheel2.rotation.z = 90 * Math.PI / 180;
+    wheel2.rotation.x = wheel2.rotation.z = (90 * Math.PI) / 180;
     wheel2.position.y = 1;
     wheel2.position.z = 2;
     this.add(wheel2);

@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 
+export const MAX_FRAME = 360;
 class Course extends THREE.Object3D {
   private _points: THREE.Vector3[] = [];
 
@@ -11,7 +12,7 @@ class Course extends THREE.Object3D {
     super();
 
     let radius = 5;
-    for (let i = 0; i < 362; i++) {
+    for (let i = 0; i <= MAX_FRAME; i++) {
       let rad = (i * Math.PI) / 180;
       let sin = Math.sin(rad * 3);
       let x = radius * Math.cos(rad) * 2 + sin * 2;

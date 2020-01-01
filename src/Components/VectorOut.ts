@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import Camera from './Objects/Camera';
-import Course from './Objects/Course';
-import Truck from './Objects/Truck';
+import Camera from '../Objects/Camera';
+import Course, { MAX_FRAME } from '../Objects/Course';
+import Truck from '../Objects/Truck';
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls';
 
-class VectorIn {
+class VectorOut {
   private width: number;
   private height: number;
   private renderer: THREE.WebGLRenderer;
@@ -60,11 +60,11 @@ class VectorIn {
     this.tick();
   }
 
-  tick() {
+  tick(): void {
     requestAnimationFrame(() => this.tick());
     this.camera.update();
     this.frame++;
-    if (this.frame > 360) {
+    if (this.frame > MAX_FRAME) {
       this.frame = 0;
     }
 
@@ -80,7 +80,10 @@ class VectorIn {
     this.renderer.render(this.scene, this.camera);
   }
 
-  getNormal(currentPoint: THREE.Vector3, nextPoint: THREE.Vector3) {
+  getNormal(
+    currentPoint: THREE.Vector3,
+    nextPoint: THREE.Vector3
+  ): THREE.Vector3 {
     const frontVec = currentPoint
       .clone()
       .sub(nextPoint)
@@ -91,4 +94,4 @@ class VectorIn {
   }
 }
 
-export default VectorIn;
+export default VectorOut;

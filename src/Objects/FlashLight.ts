@@ -20,7 +20,7 @@ class FlashLight extends THREE.Object3D {
         color: 0xcccccc
       })
     );
-    handle.rotation.z = -90 * Math.PI / 180;
+    handle.rotation.z = (-90 * Math.PI) / 180;
     this.add(handle);
 
     const head = new THREE.Mesh(
@@ -29,7 +29,7 @@ class FlashLight extends THREE.Object3D {
         color: 0xaaaaaa
       })
     );
-    head.rotation.z = -90 * Math.PI / 180;
+    head.rotation.z = (-90 * Math.PI) / 180;
     head.position.x = 2;
     this.add(head);
 
@@ -47,14 +47,14 @@ class FlashLight extends THREE.Object3D {
         blending: THREE.AdditiveBlending
       })
     );
-    beam.rotation.z = -90 * Math.PI / 180;
+    beam.rotation.z = (-90 * Math.PI) / 180;
     beam.position.x = 12;
     this.add(beam);
   }
 
   update() {
     this._angle += ROTATION_SPEED;
-    const radian = this._angle * Math.PI / 180;
+    const radian = (this._angle * Math.PI) / 180;
     this.rotation.z = radian;
     const x = Math.cos(radian);
     const y = Math.sin(radian);
@@ -64,7 +64,7 @@ class FlashLight extends THREE.Object3D {
   get frontVector() {
     return this._frontVector;
   }
-  get asperture() {
+  get aperture() {
     return this._aperture;
   }
 }

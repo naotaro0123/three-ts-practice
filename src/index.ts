@@ -1,7 +1,8 @@
-// import Simple from './BasicShader';
-// import Simple from './Traiangle';
-// import Simple from './Vector';
-import Simple from './VectorIn';
+// import Simple from './Components/BasicShader';
+// import Simple from './Components/Traiangle';
+// import Simple from './Components/Vector';
+// import Simple from './Components/VectorIn';
+import Simple from './Components/VectorOut';
 
 window.addEventListener('DOMContentLoaded', () => {
   new Simple();
