@@ -1,19 +1,25 @@
+import createWorker from 'offscreen-canvas/create-worker';
+
 class OffScreen {
   constructor() {
     const canvas = document.createElement('canvas');
-    canvas.width = canvas.height = 400;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     document.body.appendChild(canvas);
 
-    const offScreenCanvas: any = canvas.transferControlToOffscreen();
-    const worker = new Worker('../Workers/OffScreenWorker.js');
-    worker.postMessage(
-      {
-        canvas: offScreenCanvas,
-        width: canvas.width,
-        height: canvas.height
-      },
-      [offScreenCanvas]
-    );
+    const webworkerLink = '<link rel="preload" as="script" href="worker.js">';
+    document.head.innerHTML += webworkerLink;
+    const workerUrl = (<HTMLLinkElement>(
+      document.querySelector('[rel=preload][as=script]')
+    )).href;
+    const worker = createWorker(canvas, workerUrl);
+    window.addEventListener('resize', () => {
+      worker.post({
+        type: 'resize',
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    });
   }
 }
 

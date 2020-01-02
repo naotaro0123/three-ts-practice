@@ -2,10 +2,12 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: {
+    main: './src/index.ts',
+    worker: './src/Workers/OffScreenWorker.ts'
+  },
   output: {
-    path: `${__dirname}/dist`,
-    filename: 'main.js'
+    path: `${__dirname}/dist`
   },
   module: {
     rules: [
