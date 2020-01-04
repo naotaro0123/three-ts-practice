@@ -7,10 +7,7 @@ insideWorker(event => {
   if (event.data.canvas) {
     workerMain = new WorkerMain(event.data.canvas);
   } else if (event.data.type === 'resize') {
-    workerMain.resize(
-      event.data.width,
-      event.data.height
-    );
+    workerMain.resize(event.data.width, event.data.height);
   }
 });
 
@@ -25,16 +22,14 @@ class WorkerMain {
     this.renderer = new THREE.WebGLRenderer({
       canvas: offscreenCanvas
     });
-    this.renderer.setSize(
-      offscreenCanvas.width,
-      offscreenCanvas.height
-    );
+    this.renderer.setSize(offscreenCanvas.width, offscreenCanvas.height);
 
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       45,
       offscreenCanvas.width / offscreenCanvas.height,
-      1, 10000
+      1,
+      10000
     );
     this.camera.position.set(0, 0, 50);
     this.camera.lookAt(0, 0, 0);
