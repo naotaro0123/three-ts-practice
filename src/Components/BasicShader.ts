@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-const vertexShader = require('../shader/basicShader.vert');
-const fragmentShader = require('../shader/basicShader.frag');
+const vertexShader = require('../Shaders/basicShader.vert');
+const fragmentShader = require('../Shaders/basicShader.frag');
 
 class BasicShader {
   private width: number;
