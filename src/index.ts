@@ -9,7 +9,8 @@
 // import Simple from './Components/OffScreen';
 // import Simple from './Components/TweenMaxSimple';
 // import Simple from './Components/MagumaEffect';
-import Simple from './Components/FireBallNoise';
+// import Simple from './Components/FireBallNoise';
+import Simple from './Components/WireframeObject';
 
 window.addEventListener('DOMContentLoaded', () => {
   new Simple();
