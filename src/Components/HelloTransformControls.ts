@@ -39,6 +39,9 @@ export default function HelloTransformControls() {
   });
   scene.add(transControls);
 
+  const gridHelper = new THREE.GridHelper(10, 20);
+  scene.add(gridHelper);
+
   setShotrCutKey();
 
   function setShotrCutKey() {
@@ -54,7 +57,7 @@ export default function HelloTransformControls() {
           transControls.setMode('scale');
           break;
       }
-    })
+    });
   }
 
   tick();
