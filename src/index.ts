@@ -11,7 +11,8 @@
 // import Simple from './Components/MagumaEffect';
 // import Simple from './Components/FireBallNoise';
 // import Simple from './Components/WireframeObject';
-import Simple from './Components/HelloTransformControls';
+// import Simple from './Components/HelloTransformControls';
+import { DatGuiSimple as Simple } from './Components/DatGuiSimple';
 
 window.addEventListener('DOMContentLoaded', () => {
   new Simple();
