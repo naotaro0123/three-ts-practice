@@ -40,23 +40,18 @@ export default class Flare extends THREE.Object3D {
     return new THREE.ShaderMaterial({
       uniforms: {
         map: {
-          type: 't',
           value: this._map
         },
         offset: {
-          type: 'v2',
           value: this._offset
         },
         opacity: {
-          type: 'f',
           value: 0.15
         },
         innerRadius: {
-          type: 'f',
           value: this._bottomRadius
         },
         diameter: {
-          type: 'f',
           value: this._diameter
         }
       },

@@ -51,11 +51,9 @@ class FireBallNoise {
       fragmentShader,
       uniforms: {
         tExplosion: {
-          type: 't',
           value: THREE.ImageUtils.loadTexture('../images/explosion.png')
         },
         time: {
-          type: 'f',
           value: 0.0
         }
       }
